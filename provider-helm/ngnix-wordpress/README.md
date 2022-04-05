@@ -6,4 +6,4 @@
 ## Install k3d . Follow https://k3d.io/v5.4.1/#install-script
 ## Execute run.sh
 
-# Wordpress will be reachable through localhost:8081 
+# You can access Wordpress through localhost:8081 
