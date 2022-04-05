@@ -1,0 +1,28 @@
+apiVersion: helm.crossplane.io/v1beta1
+kind: Release
+metadata:
+  name: ingress
+spec:
+# rollbackLimit: 3
+  forProvider:
+    chart:
+      name: nginx
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.0.0
+#     pullSecretRef:
+#       name: museum-creds
+#       namespace: default
+#     url: "https://charts.bitnami.com/bitnami/wordpress-9.3.19.tgz"
+    namespace: ingress
+#   insecureSkipTLSVerify: true
+#   skipCreateNamespace: true
+#   wait: true
+#   skipCRDs: true
+    values:
+      service:
+        type: ClusterIP
+    set:
+      - name: param1
+        value: value2
+  providerConfigRef:
+    name: helm-provider
